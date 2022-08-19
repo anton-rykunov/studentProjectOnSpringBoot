@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create student</title>
+</head>
+<body>
+<h2>Create or Update Students</h2>
+<form action="#" th:action="@{/student-create}" th:object="${student}" method="post">
+    <input type="hidden" th:field="*{id}" id="id">
+    <label for="lastname">Фамилия</label>
+    <input type="text" th:field="*{lastname}" id="lastname" placeholder="Фамилия">
+    <label for="name">Имя</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Имя">
+
+    <select th:field="*{studyGroup}">
+        <option th:each="studyGroup : ${groups}"
+                th:value="${studyGroup.id}"
+                th:text="${studyGroup}">
+        </option>
+    </select>
+    <label for="date">Дата рождения:</label>
+    <input type="date"  th:field="*{date}" th:value="${date}" id="date">
+
+    <input type="submit" value="Create/Update Student">
+</form>
+
+
+</body>
+</html>
+
+
+
