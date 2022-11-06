@@ -35,7 +35,7 @@ public class GroupService {
         groupRepository.deleteById(id);
     }
 
-    public List<Student> getStudentByGroupId(int id){
+    public List<Student> getStudentByGroupId(Integer id){
         return groupRepository.findById(id).get().getStudentsListInGroup();
     }
 

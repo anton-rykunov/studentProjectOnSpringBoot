@@ -4,9 +4,10 @@ import com.studentprogect.springboot.studentprojectonspringboot.entity.Disciplin
 import com.studentprogect.springboot.studentprojectonspringboot.entity.Term;
 import com.studentprogect.springboot.studentprojectonspringboot.repository.DisciplineRepository;
 import com.studentprogect.springboot.studentprojectonspringboot.repository.TermRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class DisciplineService {
 
     private DisciplineRepository disciplineRepository;
@@ -23,12 +24,13 @@ public class DisciplineService {
         return disciplineRepository.findAll();
     }
 
-    public Discipline saveTerm(Discipline discipline){
+    public Discipline saveDiscipline(Discipline discipline){
         return disciplineRepository.save(discipline);
     }
 
     public void deleteById(int id) {
         disciplineRepository.deleteById(id);
     }
+
 
 }

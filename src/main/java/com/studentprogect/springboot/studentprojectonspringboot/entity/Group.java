@@ -1,15 +1,12 @@
 package com.studentprogect.springboot.studentprojectonspringboot.entity;
 
-import lombok.Generated;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-
 @Table(name = "group_students")
 public class Group {
 
@@ -55,8 +52,21 @@ public class Group {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Group group = (Group) o;
+        return id == group.id && Objects.equals(name, group.name) && Objects.equals(studentsListInGroup, group.studentsListInGroup);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, studentsListInGroup);
+    }
+
+    @Override
     public String toString() {
-        return  name;
+        return name;
     }
 }
 

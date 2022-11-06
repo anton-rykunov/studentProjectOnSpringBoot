@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>All students</title>
+    <title>Student progress</title>
 </head>
 <body>
 <div th:switch="${students}">
@@ -25,14 +25,33 @@
                 <td th:text="${student.name}"></td>
                 <td th:text="${student.studyGroup}"></td>
                 <td th:text="${#dates.format(student.date, 'dd-MMM-yyyy')}"></td>
-                <td><a th:href="@{student-update/{id}(id=${student.id})}">Update</a></td>
-                <td><a th:href="@{student-delete/{id}(id=${student.id})}">Delete</a></td>
+                <td>
+                    <button><a th:href="@{student-update/{id}(id=${student.id})}">Update</a></button>
+                </td>
+                <td>
+                    <button><a th:href="@{student-delete/{id}(id=${student.id})}">Delete</a></button>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <p><a href="/student-create">Create student</a></p>
-    <p><a href="/group">All groups</a> </p>
+    <br>
+
+    <button><a href="/student-create">Create student</a></button>
+    <br>
+    <br>
+    <button><a href="/group">Groups</a></button>
+    <br>
+    <br>
+    <button><a href="/terms">Terms</a></button>
+    <br>
+    <br>
+    <button><a href="/disciplines">Disciplines</a></button>
+    <br>
+    <br>
+    <form th:action="@{/group}">
+        <button alt="Push">Groups</button>
+    </form>
 </div>
 </body>
 </html>

@@ -48,7 +48,6 @@ public class StudentController {
 
     @PostMapping("/student-create")
     public String saveStudent(Student student) {
-
         studentService.saveStudent(student);
         return "redirect:/students";
     }
@@ -61,11 +60,5 @@ public class StudentController {
         model.addAttribute("groups", allGroups);
         return "student-create_or_update";
     }
-
-    public String updateStudent(Student student) {
-        studentService.saveStudent(student);
-        return "redirect:/students";
-    }
-
 
 }

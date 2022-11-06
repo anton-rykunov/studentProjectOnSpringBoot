@@ -11,25 +11,32 @@ import java.util.List;
 public class TermService {
 
     private TermRepository termRepository;
+    private DisciplineService disciplineService;
 
-    public TermService(TermRepository termRepository) {
+    public TermService(TermRepository termRepository, DisciplineService disciplineService) {
         this.termRepository = termRepository;
+        this.disciplineService = disciplineService;
     }
 
-    public Term findById(int id){
+    public Term findById(int id) {
         return termRepository.findById(id).get();
     }
 
-    public List<Term> findAll(){
+    public List<Term> findAll() {
         return termRepository.findAll();
     }
 
-    public Term saveTerm(Term term){
+    public Term saveTerm(Term term) {
         return termRepository.save(term);
     }
 
     public void deleteById(int id) {
         termRepository.deleteById(id);
     }
+
+    public List<Discipline> getDisciplineByTermId(Integer id) {
+        return termRepository.findById(id).get().getDisciplines();
+    }
+
 
 }
